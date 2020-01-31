@@ -5,14 +5,7 @@ It is Spring Boot App which demonstrates starting app in one container and conne
 ## Pre-requsites
 Install docker on your Linux flavour system. Use VM if your system is on Windows OS and configure proxy if you system is behind it.
 
-## Source Code
-
-Source code is available @ [https://github.com/sarvajeetp/DockerDemo](https://github.com/sarvajeetp/DockerDemo)
-
-Docker Build file is also included in source code
-
 ## To Build App Image
-
 If your machine is behind proxy
 
 ```sh
@@ -23,7 +16,7 @@ If there is no proxy
 ```sh
 $ docker build -f Downloads/dockerfile -t spring_mariadb_demo --force-rm .
 ```
-> **Note** There is no need to build mariadb image.
+> **Note** This step is not required to run the containers as image is available in dockerhub.
 
 ## Run Maria DB Container
 
@@ -45,7 +38,7 @@ $ exit
 ## Running App Container
 
 ```sh
-$ docker run --link mariadb -d -e MARIADB_SERVER_HOST=172.17.0.2 -p 8080:8080 --name demo-app spring-mariadb-demo
+$ docker run --link mariadb -d -e MARIADB_SERVER_HOST=172.17.0.2 -p 8080:8080 --name demo-app sarvajeetp/springboot-mariadb-demo
 ```
 
 ## Access Application
